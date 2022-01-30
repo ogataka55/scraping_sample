@@ -2,6 +2,8 @@ import time
 # noinspection PyUnresolvedReferences
 import chromedriver_binary
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 
 def main():
@@ -11,7 +13,10 @@ def main():
     # Googleにアクセス
     driver.get('https://google.com/')
 
-    time.sleep(10)
+    driver.find_element(By.NAME, "q").send_keys(food)
+    driver.find_element("name", "q").send_keys(Keys.ENTER)
+
+    time.sleep(1)
     driver.close()
 
 
